@@ -1,0 +1,162 @@
+2016-08-03 16:12:59,716 [main] INFO  (DfReplaceSchemaTask#begin():91) - +------------------------------------------+
+2016-08-03 16:12:59,720 [main] INFO  (DfReplaceSchemaTask#begin():92) - |                                          |
+2016-08-03 16:12:59,720 [main] INFO  (DfReplaceSchemaTask#begin():93) - |              ReplaceSchema               |
+2016-08-03 16:12:59,723 [main] INFO  (DfReplaceSchemaTask#begin():101) - |                                          |
+2016-08-03 16:12:59,723 [main] INFO  (DfReplaceSchemaTask#begin():102) - +------------------------------------------+
+2016-08-03 16:12:59,724 [main] INFO  (DfReplaceSchemaTask#waitBeforeReps():342) - ...Waiting for your GO SIGN from stdin before ReplaceSchema:
+2016-08-03 16:13:03,041 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2016-08-03 16:13:03,044 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.ibm.db2.jcc.DB2Driver
+2016-08-03 16:13:03,044 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:db2://localhost:50000/NSYL_DB
+2016-08-03 16:13:03,046 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = db2admin
+2016-08-03 16:13:03,304 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2016-08-03 16:13:03,697 [main] INFO  (DfReplaceSchemaTask#setupLazyConnection():143) - ...Being a lazy connection: Failed to connect: url=jdbc:db2://localhost:500...
+2016-08-03 16:13:03,715 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():229) - 
+2016-08-03 16:13:03,715 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():230) - * * * * * * * * * * *
+2016-08-03 16:13:03,716 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():231) - *                   *
+2016-08-03 16:13:03,718 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():232) - * Initialize Schema *
+2016-08-03 16:13:03,721 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():233) - *                   *
+2016-08-03 16:13:03,723 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():234) - * * * * * * * * * * *
+2016-08-03 16:13:03,724 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():236) - *Passed because it's a lazy connection
+2016-08-03 16:13:03,727 [main] INFO  (DfCreateSchemaProcess#createSchema():266) - 
+2016-08-03 16:13:03,728 [main] INFO  (DfCreateSchemaProcess#createSchema():267) - * * * * * * * * *
+2016-08-03 16:13:03,730 [main] INFO  (DfCreateSchemaProcess#createSchema():268) - *               *
+2016-08-03 16:13:03,731 [main] INFO  (DfCreateSchemaProcess#createSchema():269) - * Create Schema *
+2016-08-03 16:13:03,733 [main] INFO  (DfCreateSchemaProcess#createSchema():270) - *               *
+2016-08-03 16:13:03,735 [main] INFO  (DfCreateSchemaProcess#createSchema():271) - * * * * * * * * *
+2016-08-03 16:13:03,741 [main] INFO  (DfSqlFileFireMan#fire():64) - ...Firing: replace-schema.sql
+2016-08-03 16:13:03,744 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+CREATE TABLE EMP(
+	ID INTEGER NOT NULL PRIMARY KEY, 
+	NAME VARCHAR(20),
+	HIRE_DATE DATE,
+	DEPT_ID INTEGER, 
+	VERSION_NO NUMERIC(8)
+)
+2016-08-03 16:13:03,759 [main] INFO  (DfCreateSchemaProcess$DfSqlFileRunnerExecuteCreateSchema#lazyConnectIfNeeds():466) - ...Connecting by main user lazily
+2016-08-03 16:13:03,760 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2016-08-03 16:13:03,762 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.ibm.db2.jcc.DB2Driver
+2016-08-03 16:13:03,764 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:db2://localhost:50000/NSYL_DB
+2016-08-03 16:13:03,766 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = db2admin
+2016-08-03 16:13:03,768 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2016-08-03 16:13:03,790 [main] INFO  (DfSqlFileFireMan#fire():89) - {Create Schema}: success=0 failure=1 *break (in 1 files)
+2016-08-03 16:13:03,904 [main] ERROR (DfDBFluteTaskUtil#logException():150) - Look! Read the message below.
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+Failed to execute DBFlute Task 'ReplaceSchema'.
+
+[Advice]
+Check the exception messages and the stack traces.
+* * * * * * * * * */
+org.dbflute.exception.SQLFailureException: Look! Read the message below.
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+Failed to execute the SQL!
+
+[SQL File]
+playsql\replace-schema.sql
+
+[Executed SQL]
+CREATE TABLE EMP(
+	ID INTEGER NOT NULL PRIMARY KEY, 
+	NAME VARCHAR(20),
+	HIRE_DATE DATE,
+	DEPT_ID INTEGER, 
+	VERSION_NO NUMERIC(8)
+)
+
+[SQLState]
+58031
+
+[ErrorCode]
+-1031
+
+[SQLException]
+org.dbflute.exception.DfJDBCException
+Failed to connect: url=jdbc:db2://localhost:50000/NSYL_DB user=db2admin
+
+[NextException]
+com.ibm.db2.jcc.am.SqlException
+DB2 SQL Error: SQLCODE=-1031, SQLSTATE=58031, SQLERRMC=null, DRIVER=3.63.123
+* * * * * * * * * */
+	at org.dbflute.helper.jdbc.sqlfile.DfSqlFileRunnerBase.throwSQLFailureException(DfSqlFileRunnerBase.java:587)
+	at org.dbflute.helper.jdbc.sqlfile.DfSqlFileRunnerExecute.execSQL(DfSqlFileRunnerExecute.java:80)
+	at org.dbflute.helper.jdbc.sqlfile.DfSqlFileRunnerBase.runTransaction(DfSqlFileRunnerBase.java:122)
+	at org.dbflute.helper.jdbc.sqlfile.DfSqlFileFireMan.processSqlFile(DfSqlFileFireMan.java:169)
+	at org.dbflute.helper.jdbc.sqlfile.DfSqlFileFireMan.fire(DfSqlFileFireMan.java:67)
+	at org.dbflute.logic.replaceschema.process.DfCreateSchemaProcess.createSchema(DfCreateSchemaProcess.java:274)
+	at org.dbflute.logic.replaceschema.process.DfCreateSchemaProcess.execute(DfCreateSchemaProcess.java:143)
+	at org.dbflute.task.DfReplaceSchemaTask.createSchema(DfReplaceSchemaTask.java:261)
+	at org.dbflute.task.DfReplaceSchemaTask.doExecuteCoreProcess(DfReplaceSchemaTask.java:246)
+	at org.dbflute.task.DfReplaceSchemaTask.executeCoreProcess(DfReplaceSchemaTask.java:237)
+	at org.dbflute.task.DfReplaceSchemaTask.processMain(DfReplaceSchemaTask.java:230)
+	at org.dbflute.task.DfReplaceSchemaTask.doExecute(DfReplaceSchemaTask.java:157)
+	at org.dbflute.task.bs.DfAbstractTexenTask$1.callActualExecute(DfAbstractTexenTask.java:129)
+	at org.dbflute.task.bs.assistant.DfTaskBasicController.doExecute(DfTaskBasicController.java:183)
+	at org.dbflute.task.bs.assistant.DfTaskBasicController.execute(DfTaskBasicController.java:77)
+	at org.dbflute.task.bs.DfAbstractTexenTask.execute(DfAbstractTexenTask.java:151)
+	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:288)
+	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:105)
+	at org.apache.tools.ant.Task.perform(Task.java:348)
+	at org.apache.tools.ant.Target.execute(Target.java:357)
+	at org.apache.tools.ant.Target.performTasks(Target.java:385)
+	at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1329)
+	at org.apache.tools.ant.helper.SingleCheckExecutor.executeTargets(SingleCheckExecutor.java:38)
+	at org.apache.tools.ant.Project.executeTargets(Project.java:1181)
+	at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:416)
+	at org.apache.tools.ant.taskdefs.CallTarget.execute(CallTarget.java:105)
+	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:288)
+	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:105)
+	at org.apache.tools.ant.Task.perform(Task.java:348)
+	at org.apache.tools.ant.Target.execute(Target.java:357)
+	at org.apache.tools.ant.Target.performTasks(Target.java:385)
+	at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1329)
+	at org.apache.tools.ant.Project.executeTarget(Project.java:1298)
+	at org.apache.tools.ant.helper.DefaultExecutor.executeTargets(DefaultExecutor.java:41)
+	at org.apache.tools.ant.Project.executeTargets(Project.java:1181)
+	at org.apache.tools.ant.Main.runBuild(Main.java:698)
+	at org.apache.tools.ant.Main.startAnt(Main.java:199)
+	at org.apache.tools.ant.launch.Launcher.run(Launcher.java:257)
+	at org.apache.tools.ant.launch.Launcher.main(Launcher.java:104)
+Caused by: org.dbflute.exception.DfJDBCException: Failed to connect: url=jdbc:db2://localhost:50000/NSYL_DB user=db2admin
+	at org.dbflute.helper.jdbc.connection.DfDataSourceHandler.createConnection(DfDataSourceHandler.java:170)
+	at org.dbflute.helper.jdbc.connection.DfDataSourceHandler.processCachedConnection(DfDataSourceHandler.java:154)
+	at org.dbflute.helper.jdbc.connection.DfDataSourceHandler.getConnection(DfDataSourceHandler.java:137)
+	at org.dbflute.helper.jdbc.connection.DfFittingDataSource.getConnection(DfFittingDataSource.java:44)
+	at org.dbflute.helper.jdbc.context.DfSchemaSource.getConnection(DfSchemaSource.java:82)
+	at org.dbflute.task.DfReplaceSchemaTask.setupDataSource(DfReplaceSchemaTask.java:129)
+	at org.dbflute.task.DfReplaceSchemaTask$2.callbackSetupDataSource(DfReplaceSchemaTask.java:280)
+	at org.dbflute.logic.replaceschema.process.DfCreateSchemaProcess.setupDataSource(DfCreateSchemaProcess.java:133)
+	at org.dbflute.logic.replaceschema.process.DfCreateSchemaProcess$DfSqlFileRunnerExecuteCreateSchema.lazyConnectIfNeeds(DfCreateSchemaProcess.java:467)
+	at org.dbflute.helper.jdbc.sqlfile.DfSqlFileRunnerExecute.execSQL(DfSqlFileRunnerExecute.java:61)
+	... 43 more
+2016-08-03 16:13:04,094 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m04s389ms *Abort
+
+  DBFLUTE_CLIENT: {NetSamYL}
+    database  = db2
+    language  = java
+    container = spring
+    package   = jp.ne.corenet.netsam.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.ibm.db2.jcc.DB2Driver
+    url    = jdbc:db2://localhost:50000/NSYL_DB
+    schema = {DB2ADMIN as main}
+    user   = db2admin
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+
+ {Create Schema}: success=0 failure=1 *break (in 1 files)
+  x replace-schema.sql
+   >> (failed: Look at the exception message)
+    * * * * * *
+    * Failure *
+    * * * * * *
+_/_/_/_/_/_/_/_/_/_/ {ReplaceSchema}

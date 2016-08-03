@@ -15,11 +15,11 @@
 # *The line that starts with '#' means comment-out.
 #
 map:{
-    ; driver   = org.h2.Driver
-    ; url      = jdbc:h2:file:../src/main/resources/NetSamYL
-    ; schema   =  
-    ; user     = sa
-    ; password =  
+    ; driver   = com.ibm.db2.jcc.DB2Driver
+    ; url      = jdbc:db2://localhost:50000/NSYL_DB
+    ; schema   = DB2ADMIN
+    ; user     = db2admin
+    ; password = db2-adm
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o propertiesMap: (NotRequired - Default map:{})
